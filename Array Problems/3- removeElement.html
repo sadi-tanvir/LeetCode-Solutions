@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Element</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/remove-element/ -->
+
+    <h1 style="color:brown">Remove Element</h1>
+
+    <script>
+        // solution - 1
+        var removeElement = function (nums, val) {
+            let z = 0;
+            while (z < nums.length) {
+                if (nums[z] == val) {
+                    for (let j = z; j < nums.length; j++) {
+                        nums[j] = nums[j + 1];
+                    }
+                    nums.length = nums.length - 1
+                } else {
+                    z++
+                }
+            }
+            return nums
+        };
+
+        console.warn(removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
+
+        
+
+        /*
+               // solution - 2
+              var removeElement = function (nums, val) {
+                   let z = 0;
+                   while (z < nums.length) {
+                       if (nums[z] == val) {
+                           nums.splice(z, 1);
+                       } else {
+                           z++
+                       }
+                   }
+                   return nums
+               };
+       
+               console.warn(removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2));
+               */
+
+    </script>
+</body>
+
+</html>
