@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus One</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/plus-one/ -->
+
+    <h1 style="color:brown">Plus One</h1>
+
+    <script>
+
+        // solution - 1
+        var plusOne = function (digits) {
+            let x = digits.join("")
+            let sum = String(BigInt(x) + 1n)
+            let newArr = [];
+            for (let i = 0; i < sum.length; i++) {
+                newArr[newArr.length] = Number(sum[i]);
+            }
+            return newArr
+        };
+
+        console.warn(plusOne([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]));
+
+        
+        
+        // solution - 2
+        /* 
+            var plusOne = function (digits) {
+                let x = digits.join("")
+                let sum = String(BigInt(x) + 1n)
+                return sum.split("");
+            };
+    
+            console.warn(plusOne([4, 3, 2, 1])); */
+
+    </script>
+</body>
+
+</html>
