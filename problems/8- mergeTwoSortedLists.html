@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Two Sorted Lists</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/merge-two-sorted-lists/ -->
+
+    <h1 style="color:brown">Merge Two Sorted Lists</h1>
+
+    <script>
+        let list1 = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 4,
+                    next: null
+                }
+            }
+        };
+
+        let list2 = {
+            val: 1,
+            next: {
+                val: 3,
+                next: {
+                    val: 4,
+                    next: null
+                }
+            }
+        };
+
+        function ListNode(val, next) {
+            this.val = (val === undefined ? 0 : val)
+            this.next = (next === undefined ? null : next)
+        }
+
+        var mergeTwoLists = function (list1, list2) {
+            if (!list1 && !list2) return null;
+            if (!list1) return list2;
+            if (!list2) return list1;
+
+            let listNode = new ListNode(0);
+            let currentNode = listNode;
+
+            while (list1 && list2) {
+                if (list1.val < list2.val) {
+                    currentNode.next = list1;
+                    list1 = list1.next;
+                } else {
+                    currentNode.next = list2;
+                    list2 = list2.next;
+                }
+
+
+                currentNode = currentNode.next;
+            }
+
+            if (list1 != null) {
+                currentNode.next = list1;
+            }
+            if (list2 != null) {
+                currentNode.next = list2;
+            }
+            return listNode.next
+        };
+
+        console.log(mergeTwoLists(list1, list2));
+    </script>
+</body>
+
+</html>
