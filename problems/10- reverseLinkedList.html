@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>206. Reverse Linked List</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/reverse-linked-list/ -->
+
+    <h1 style="color:brown">206. Reverse Linked List</h1>
+
+    <script>
+        let head = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: {
+                            val: 5,
+                            next: null
+                        }
+                    }
+                }
+            }
+        };
+
+
+        function ListNode(val, next) {
+            this.val = (val === undefined ? 0 : val)
+            this.next = (next === undefined ? null : next)
+        }
+
+
+        var reverseList = function (head) {
+            let previous = null;
+
+            while(head != null) {
+                let nextNode = head.next;
+                head.next = previous;
+                previous = head;
+                head = nextNode;
+            }
+
+            return previous;
+        };
+        console.warn(reverseList(head));
+
+    </script>
+</body>
+
+</html>
