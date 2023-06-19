@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Add Two Numbers</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/add-two-numbers/description/ -->
+
+    <h1 style="color:brown">2. Add Two Numbers</h1>
+
+    <script>
+        const list1 = {
+            val: 1,
+            next: {
+                val: 0,
+                next: {
+                    val: 0,
+                    next: {
+                        val: 0,
+                        next: {
+                            val: 0,
+                            next: {
+                                val: 0,
+                                next: {
+                                    val: 0,
+                                    next: {
+                                        val: 0,
+                                        next: {
+                                            val: 0,
+                                            next: {
+                                                val: 0,
+                                                next: {
+                                                    val: 0,
+                                                    next: {
+                                                        val: 0,
+                                                        next: {
+                                                            val: 0,
+                                                            next: {
+                                                                val: 0,
+                                                                next: {
+                                                                    val: 0,
+                                                                    next: {
+                                                                        val: 0,
+                                                                        next: {
+                                                                            val: 0,
+                                                                            next: {
+                                                                                val: 0,
+                                                                                next: {
+                                                                                    val: 0,
+                                                                                    next: {
+                                                                                        val: 0,
+                                                                                        next: {
+                                                                                            val: 0,
+                                                                                            next: {
+                                                                                                val: 0,
+                                                                                                next: {
+                                                                                                    val: 0,
+                                                                                                    next: {
+                                                                                                        val: 0,
+                                                                                                        next: {
+                                                                                                            val: 0,
+                                                                                                            next: {
+                                                                                                                val: 0,
+                                                                                                                next: {
+                                                                                                                    val: 0,
+                                                                                                                    next: {
+                                                                                                                        val: 0,
+                                                                                                                        next: {
+                                                                                                                            val: 0,
+                                                                                                                            next: {
+                                                                                                                                val: 0,
+                                                                                                                                next: {
+                                                                                                                                    val: 1,
+                                                                                                                                    next: null
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const list2 = {
+            val: 5,
+            next: {
+                val: 6,
+                next: {
+                    val: 4,
+                    next: null
+                }
+            }
+        };
+
+        // const list1 = {
+        //     val: 2,
+        //     next: {
+        //         val: 4,
+        //         next: {
+        //             val: 3,
+        //             next: null
+        //         }
+        //     }
+        // };
+        // const list2 = {
+        //     val: 5,
+        //     next: {
+        //         val: 6,
+        //         next: {
+        //             val: 4,
+        //             next: null
+        //         }
+        //     }
+        // };
+
+        function ListNode(val, next) {
+            this.val = (val === undefined ? 0 : val)
+            this.next = (next === undefined ? null : next)
+        }
+
+        var addTwoNumbers = function (l1, l2) {
+            let listNode = new ListNode(0);
+            let currentNode = listNode;
+
+            let list1Arr = [];
+            let list2Arr = [];
+
+            while (l1) {
+                if (list1Arr.length == 0) {
+                    list1Arr[list1Arr.length] = l1.val;
+                } else {
+                    for (let i = list1Arr.length - 1; i >= 0; i--) {
+                        list1Arr[i + 1] = list1Arr[i]
+                        if (i == 0) {
+                            list1Arr[i] = l1.val
+                        }
+                    }
+                }
+                l1 = l1.next;
+            }
+
+            while (l2) {
+                if (list2Arr.length == 0) {
+                    list2Arr[list2Arr.length] = l2.val;
+                } else {
+                    for (let i = list2Arr.length - 1; i >= 0; i--) {
+                        list2Arr[i + 1] = list2Arr[i]
+                        if (i == 0) {
+                            list2Arr[i] = l2.val
+                        }
+                    }
+                }
+                l2 = l2.next;
+            }
+
+            const list1Num = BigInt(list1Arr.join(""))
+            const list2Num = BigInt(list2Arr.join(""))
+            const sum = list1Num + list2Num
+            const reverseSumArray = sum.toString().split("").reverse((a, b) => a - b)
+
+            for (let i = 0; i < reverseSumArray.length; i++) {
+                currentNode.next = {
+                    val: parseInt(reverseSumArray[i]),
+                    next: null
+                }
+                currentNode = currentNode.next;
+            }
+
+            return listNode.next;
+        };
+
+        console.warn(addTwoNumbers(list1, list2));
+
+    </script>
+</body>
+
+</html>
