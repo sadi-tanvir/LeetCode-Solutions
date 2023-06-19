@@ -29,10 +29,35 @@
                 index2--;
             };
             return status
-
         };
-
         console.warn(isPalindrome(11511));
+
+        
+        
+        // Object Oriented
+        /* 
+                class Palindrome {
+                    constructor(x) {
+                        this.x = x;
+                        this.status = true;
+                    };
+        
+                    checkPalindrome() {
+                        const pal = this.x.toString().split("");
+                        let reverseIndex = pal.length - 1;
+        
+                        for (let i = 0; i < pal.length / 2; i++) {
+                            if (Number(pal[i]) != Number(pal[reverseIndex])) {
+                                this.status = false;
+                            }
+                            reverseIndex--
+                        }
+                    }
+                }
+        
+                const palindrome = new Palindrome(121);
+                palindrome.checkPalindrome();
+                console.warn(palindrome.status); */
     </script>
 </body>
 

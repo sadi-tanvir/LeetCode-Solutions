@@ -73,6 +73,54 @@
         };
 
         console.log(mergeTwoLists(list1, list2));
+
+
+        
+        // Object Oriented
+        /*
+                class ListNode {
+                    constructor(val, next) {
+                        this.val = (val == undefined ? 0 : val);
+                        this.next = (next == undefined ? null : next);
+                    }
+                }
+                class MergeTwoList {
+                    constructor(list1, list2) {
+                        this.list1 = list1;
+                        this.list2 = list2;
+                        this.listNode = new ListNode(0)
+                    };
+        
+                    mergeTwoList() {
+                        if (!this.list1 && !this.list2) return null;
+                        if (!this.list1) return this.list2;
+                        if (!this.list2) return this.list1;
+        
+                        let currentNode = this.listNode;
+        
+                        while (this.list1 && this.list2) {
+                            if (this.list1.val < this.list2.val) {
+                                currentNode.next = this.list1;
+                                this.list1 = this.list1.next;
+                            } else {
+                                currentNode.next = this.list2;
+                                this.list2 = this.list2.next;
+                            }
+                            currentNode = currentNode.next;
+                        }
+        
+                        if (this.list1) {
+                            currentNode.next = this.list1;
+                        } else if (this.list2) {
+                            currentNode.next = this.list2;
+                        }
+        
+                        return this.listNode.next
+                    }
+                }
+        
+                const mergeTwoList = new MergeTwoList(list1, list2);
+                console.warn(mergeTwoList.mergeTwoList()); */
     </script>
 </body>
 

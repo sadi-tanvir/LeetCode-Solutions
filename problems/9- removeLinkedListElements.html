@@ -71,6 +71,49 @@
 
         console.warn(removeElements(head, 6));
 
+
+
+        // Object Oriented
+        /*
+                class ListNode {
+                    constructor(val, next) {
+                        this.val = (val == undefined ? 0 : val);
+                        this.next = (next == undefined ? null : next);
+                    }
+                }
+        
+                class RemoveLinkedListElement {
+                    constructor(head, val) {
+                        this.head = head;
+                        this.val = val;
+                        this.listNode = new ListNode(0);
+                    };
+        
+                    removeElement() {
+                        let currentNode = this.listNode;
+        
+                        while (this.head) {
+                            if (this.head.val == this.val) {
+                                if (this.head.next == null) {
+                                    currentNode.next = null;
+                                    break;
+                                }
+                                this.head = this.head.next;
+                            } else {
+                                currentNode.next = this.head;
+                                currentNode = currentNode.next;
+                                this.head = this.head.next;
+                            }
+                        }
+        
+                        return this.listNode.next;
+                    };
+                };
+        
+                const removeLinkedListElement = new RemoveLinkedListElement(head, 6)
+        
+                console.warn(removeLinkedListElement.removeElement()); */
+
     </script>
 </body>
 

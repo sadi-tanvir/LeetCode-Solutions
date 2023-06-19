@@ -42,7 +42,7 @@
         var reverseList = function (head) {
             let previous = null;
 
-            while(head != null) {
+            while (head != null) {
                 let nextNode = head.next;
                 head.next = previous;
                 previous = head;
@@ -52,6 +52,42 @@
             return previous;
         };
         console.warn(reverseList(head));
+
+
+
+
+
+
+        // Object Oriented
+        /*  class ListNode {
+                constructor(val, next) {
+                    this.val = (val == undefined ? 0 : val);
+                    this.next = (next == undefined ? null : next);
+                }
+            }
+
+             class ReverseLinkedList {
+                constructor(head) {
+                    this.head = head;
+                    this.listNode = new ListNode(0);
+                    this.previous = null;
+                }
+    
+                reverseList() {
+                    while (this.head) {
+                        let nextNode = this.head.next;
+                        this.head.next = this.previous;
+                        this.previous = this.head;
+                        this.head = nextNode;
+                    }
+    
+                    return this.previous;
+                }
+            }
+    
+            const reverseLinkedList = new ReverseLinkedList(head);
+            console.warn(reverseLinkedList.reverseList());
+         */
 
     </script>
 </body>
