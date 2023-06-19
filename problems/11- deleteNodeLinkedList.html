@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>237. Delete Node in a Linked List</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/delete-node-in-a-linked-list/description/ -->
+
+    <h1 style="color:brown">237. Delete Node in a Linked List</h1>
+
+    <script>
+        let head = {
+            val: 4,
+            next: {
+                val: 5,
+                next: {
+                    val: 1,
+                    next: {
+                        val: 9,
+                        next: null
+                    }
+                }
+            }
+        };
+
+
+
+        var deleteNode = function (node) {
+            node.val = node.next.val;
+            node.next = node.next.next;
+            return node;
+        };
+
+        console.warn(deleteNode(head.next));
+
+    </script>
+</body>
+
+</html>
