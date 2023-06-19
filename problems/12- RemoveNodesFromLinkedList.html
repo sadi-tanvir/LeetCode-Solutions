@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2487. Remove Nodes From Linked List</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/remove-nodes-from-linked-list/description/ -->
+
+    <h1 style="color:brown">2487. Remove Nodes From Linked List</h1>
+
+    <script>
+        let headNode = {
+            val: 5,
+            next: {
+                val: 2,
+                next: {
+                    val: 13,
+                    next: {
+                        val: 3,
+                        next: {
+                            val: 8,
+                            next: null
+                        }
+                    }
+                }
+            }
+        };
+
+
+        var removeNodes = function(head) {
+          if(!head.next) return head;
+
+          let nextNode = removeNodes(head.next)
+
+          if(head.val < nextNode.val){
+            return nextNode;
+          }else {
+            head.next = nextNode;
+            return head;
+          }
+        };
+        console.warn(removeNodes(headNode));
+
+    </script>
+</body>
+
+</html>
