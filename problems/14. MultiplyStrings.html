@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>43. Multiply Strings</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/multiply-strings/description/ -->
+
+    <h1 style="color:brown">43. Multiply Strings</h1>
+
+    <script>
+        const nums1 = "2"
+        const nums2 = "3"
+
+        var multiply = function (num1, num2) {
+            const sum = BigInt(num1) * BigInt(num2)
+            return sum.toString()
+        };
+        console.warn(multiply(nums1, nums2));
+    </script>
+</body>
+
+</html>
