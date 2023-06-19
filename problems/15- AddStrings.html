@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>415. Add Strings</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/add-strings/description/ -->
+
+    <h1 style="color:brown">415. Add Strings</h1>
+
+    <script>
+        var addStrings = function (num1, num2) {
+            const sum = BigInt(num1) + BigInt(num2)
+            return sum.toString()
+        };
+        console.warn(addStrings("11", "123"));
+    </script>
+</body>
+
+</html>
