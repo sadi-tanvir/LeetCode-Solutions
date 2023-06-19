@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33. Search in Rotated Sorted Array
+    </title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/search-in-rotated-sorted-array/description/ -->
+
+    <h1 style="color:brown">33. Search in Rotated Sorted Array
+    </h1>
+
+    <script>
+        var search = function (nums, target) {
+            let position = null;
+            for (let i = 0; i < nums.length; i++) {
+                if (nums[i] == target) {
+                    position = i;
+                }
+
+                if (i == nums.length - 1 && (position == null)) {
+                    position = -1
+                }
+            }
+
+            return position;
+        };
+    </script>
+</body>
+
+</html>
