@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>74. Search a 2D Matrix</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/search-a-2d-matrix/description/ -->
+
+    <h1 style="color:brown">74. Search a 2D Matrix</h1>
+
+    <script>
+        var searchMatrix = function (matrix, target) {
+            let status = false;
+
+            for (const elem of matrix) {
+                for (const elem2 of elem) {
+                    console.warn(elem2);
+                    if (target == elem2) {
+                        status = true;
+                        break;
+                    }
+                }
+                if (status) {
+                    break;
+                }
+            }
+
+            return status
+        };
+
+        console.warn(searchMatrix([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3));
+    </script>
+</body>
+
+</html>
