@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>81. Search in Rotated Sorted Array II</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/ -->
+
+    <h1 style="color:brown">81. Search in Rotated Sorted Array II</h1>
+
+    <script>
+        var search = function (nums, target) {
+            let status = false;
+
+            for (const elem of nums) {
+                console.warn(elem);
+                if (elem == target) {
+                    status = true;
+                    break;
+                }
+            }
+
+            return status;
+        }
+        console.warn(search([2, 5, 6, 0, 0, 1, 2], 0));
+    </script>
+</body>
+
+</html>
