@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2089. Find Target Indices After Sorting Array</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/find-target-indices-after-sorting-array/description/ -->
+
+    <h1 style="color:brown">2089. Find Target Indices After Sorting Array</h1>
+
+    <script>
+        var targetIndices = function (nums, target) {
+            for (let i = 0; i < nums.length; i++) {
+                for (let j = 0; j < nums.length; j++) {
+                    if (nums[j] > nums[j + 1]) {
+                        let temp = nums[j];
+                        nums[j] = nums[j + 1];
+                        nums[j + 1] = temp;
+                    }
+                }
+            }
+
+            return find(nums, 0, nums.length - 1, target);
+        };
+
+        var find = function (nums, start, end, target) {
+            let mid = Math.floor(start + (end - start) / 2);
+
+            if (start > end) {
+                return [];
+            } else {
+                if (nums[mid] == target && nums[mid] != nums[mid - 1]) {
+                    let temp = [];
+                    for (let i = mid; nums[i] == nums[mid]; i++) {
+                        temp[temp.length] = i;
+                    }
+                    return temp;
+                } else if (nums[mid] == target && nums[mid] == nums[mid - 1] && nums[mid] < nums[end]) {
+                    return find(nums, start, end - 1, target)
+                } else if (nums[mid] < target) {
+                    return find(nums, mid + 1, end, target)
+                } else {
+                    return find(nums, start, mid - 1, target);
+                }
+            }
+        }
+
+        // console.warn(targetIndices([1, 2, 2, 3, 5], 2));
+        console.warn(targetIndices([1, 2, 5, 2, 3], 4));
+    </script>
+</body>
+
+</html>
