@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Longest Substring Without Repeating Characters</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/longest-substring-without-repeating-characters/description/ -->
+
+    <h1 style="color:brown">3. Longest Substring Without Repeating Characters</h1>
+
+
+    <script>
+
+        var lengthOfLongestSubstring = function (s) {
+            let start = 0;
+            let end = 0;
+            let maxLength = 0;
+            let set = new Set();
+
+            while (end < s.length) {
+                if (!set.has(s[end])) {
+                    set.add(s[end]);
+                    end++
+                    maxLength = maxLength > set.size ? maxLength : set.size;
+                    // maxLength = Math.max(maxLength, set.size);
+                } else {
+                    set.delete(s[start]);
+                    start++
+                }
+            }
+
+            return maxLength;
+        };
+
+        console.warn(lengthOfLongestSubstring("abcabcbb"));
+    </script>
+</body>
+
+</html>
