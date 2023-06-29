@@ -15,7 +15,22 @@
     <h1 style="color:brown">Palindrome Number</h1>
 
     <script>
-        var isPalindrome = function (x) {
+
+    var isPalindrome = function (x) {
+        if(x < 0) return false;
+        let original = x;
+        let reverse = 0;
+        while (x != 0) {
+            let lastDigit = x % 10;
+            reverse = (reverse * 10) + lastDigit;
+            x = parseInt(x / 10)
+        }
+        return original == reverse;
+    };
+    console.warn(isPalindrome(11511))
+
+        // worst way
+        /* var isPalindrome = function (x) {
             x = x.toString().split("")
             let index2 = x.length - 1;
             let status = true;
@@ -30,7 +45,7 @@
             };
             return status
         };
-        console.warn(isPalindrome(11511));
+        console.warn(isPalindrome(11511)); */
 
         
         
