@@ -1,0 +1,9 @@
+==> to know the last digit of a number
+formula ==> number % 10 = last digit
+example ==> 123 % 10 = 3
+
+
+==> to delete the last digit of a Big number
+formula ==> number / 10 = get number with decimal point. have to convert as integer number
+example ==> 123 / 10 = parseInt(12.3) = 12
+
