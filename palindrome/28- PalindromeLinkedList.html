@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>234. Palindrome Linked List</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/palindrome-linked-list/description/ -->
+
+    <h1 style="color:brown">234. Palindrome Linked List</h1>
+
+    <script>
+
+        const nodeHead = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 2,
+                    next: {
+                        val: 1,
+                        next: null
+                    }
+                }
+            }
+        }
+
+        var isPalindrome = function (head) {
+            let status = true;
+            let arr = [];
+            while (head) {
+                arr[arr.length] = head.val;
+                head = head.next;
+            }
+            let reverseIndex = arr.length - 1;
+            for (let i = 0; i < arr.length / 2; i++) {
+                if(arr[i] !== arr[reverseIndex--]){
+                    status = false;
+                }
+            }
+
+            return status;
+        }
+
+        console.warn(isPalindrome(nodeHead));
+
+    </script>
+</body>
+
+</html>
