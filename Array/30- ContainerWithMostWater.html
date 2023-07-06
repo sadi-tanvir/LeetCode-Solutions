@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11. Container With Most Water</title>
+</head>
+
+<body>
+    <h1>11. Container With Most Water</h1>
+
+    <!-- https://leetcode.com/problems/container-with-most-water/ -->
+
+    <script>
+
+        var maxArea = function (height) {
+            let maxContainArea = 0;
+            let left = 0;
+            let right = height.length - 1;
+            while (left != right) {
+                let gap = Math.abs(left - right);
+                let lessHeight = height[left] < height[right] ? height[left] : height[right];
+                let totalArea = gap * lessHeight;
+                if (maxContainArea < totalArea) {
+                    maxContainArea = totalArea;
+                }
+
+                if (height[left] < height[right]) {
+                    left++
+                } else {
+                    right--
+                }
+            }
+
+            return maxContainArea;
+        };
+
+        console.warn(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+
+    </script>
+</body>
+
+</html>
