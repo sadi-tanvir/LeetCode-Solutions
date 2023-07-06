@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13. Roman to Integer</title>
+</head>
+
+<body>
+    <h1>13. Roman to Integer</h1>
+
+    <!-- https://leetcode.com/problems/roman-to-integer/ -->
+
+    <script>
+
+        var romanToInt = function (s) {
+            const I = 1
+            const V = 5
+            const X = 10
+            const L = 50
+            const C = 100
+            const D = 500
+            const M = 1000
+
+            let total = eval(s[s.length - 1]);
+
+            for (let i = s.length - 1; i > 0; i--) {
+                if (eval(s[i - 1]) < eval(s[i])) {
+                    total = total - eval(s[i - 1]);
+                } else {
+                    total = total + eval(s[i - 1]);
+                }
+            }
+
+            return total;
+        };
+
+        console.warn(romanToInt("MCMXCIV"));
+
+    </script>
+</body>
+
+</html>
