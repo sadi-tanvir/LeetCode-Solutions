@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14. Longest Common Prefix</title>
+</head>
+
+<body>
+    <h1>14. Longest Common Prefix</h1>
+
+    <!-- https://leetcode.com/problems/longest-common-prefix/ -->
+
+    <script>
+        let strsArr = ["flower", "fow", "flight"];
+
+        // 1st way
+        var longestCommonPrefix = function (strs) {
+            let prefix = [];
+            let status = true;
+            for (let i = 0; i < strs[0].length; i++) {
+                for (let j = 1; j < strs.length; j++) {
+                    if (strs[0][i] != strs[j][i]) {
+                        status = false;
+                        break;
+                    }
+                }
+                if (status) {
+                    // pre.push(strs[0][i]);
+                    prefix[prefix.length] = strs[0][i]
+                }
+            }
+
+            return prefix.join("");
+        };
+
+
+
+        // 2nd way
+        // var longestCommonPrefix = function (strs) {
+        //     strs.sort();
+
+        //     for (let i = 0; i < strs[0].length; i++) {
+        //         if (strs[0][i] !== strs[strs.length - 1][i]) {
+        //             return strs[0].substring(0, i)
+        //         }
+        //     }
+
+        //     return strs[0];
+        // };
+        console.warn(longestCommonPrefix(strsArr));
+
+    </script>
+</body>
+
+</html>
