@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19. Remove Nth Node From End of List</title>
+</head>
+
+<body>
+    <h1>19. Remove Nth Node From End of List</h1>
+
+    <!-- https://leetcode.com/problems/remove-nth-node-from-end-of-list/  -->
+
+    <script>
+        const nodeHead = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: {
+                            val: 5,
+                            next: null
+                        }
+                    }
+                }
+            }
+        };
+
+
+
+        var removeNthFromEnd = function (head, n) {
+            if (head.next == null) return null
+
+            let counter = 1
+            let newNode = null;
+
+            var remove = function (head, n) {
+                if (head.next == null) return head;
+
+                let lastNode = remove(head.next, n)
+                if ((counter == 1) && (lastNode?.val >= 0) && (n != counter)) {
+                    newNode = lastNode
+                }
+
+                counter++
+
+                if (counter != n) {
+                    head.next = newNode;
+                    newNode = head;
+                }
+
+                return newNode
+            }
+
+            return remove(head, n)
+        }
+
+
+
+
+
+        console.warn(removeNthFromEnd(nodeHead, 3));
+
+
+
+    </script>
+</body>
+
+</html>
