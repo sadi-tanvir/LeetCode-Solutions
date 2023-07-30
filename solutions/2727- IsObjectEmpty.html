@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2727. Is Object Empty</title>
+</head>
+
+<body>
+    <h1>2727. Is Object Empty</h1>
+
+    <!-- https://leetcode.com/problems/is-object-empty/  -->
+
+    <script>
+        const objectVar = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        }
+
+        const arrayVar = [1, 2, 3, 4, 5];
+        
+        var isEmpty = function (obj) {
+            if (Array.isArray(obj)) {
+                return obj.length <= 0
+            } else {
+                return Object.keys(obj).length <= 0
+            }
+        };
+
+        console.warn(isEmpty(objectVar));
+
+    </script>
+</body>
+
+</html>
