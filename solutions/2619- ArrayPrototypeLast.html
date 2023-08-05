@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2619. Array Prototype Last</title>
+</head>
+
+<body>
+    <h1>2619. Array Prototype Last</h1>
+
+    <!-- https://leetcode.com/problems/array-prototype-last/  -->
+
+    <script>
+        Array.prototype.sadi = function () {
+            if (this.length) {
+                console.warn('last element of array - ', this[this.length - 1]);
+                return this[this.length - 1];
+            }
+            return -1;
+        }
+
+        let arr = [1, 2, 3]
+        arr.sadi()
+    </script>
+</body>
+
+</html>
