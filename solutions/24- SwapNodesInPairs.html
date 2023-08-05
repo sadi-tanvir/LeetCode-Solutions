@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24. Swap Nodes in Pairs</title>
+</head>
+
+<body>
+    <h1>24. Swap Nodes in Pairs</h1>
+
+    <!-- https://leetcode.com/problems/swap-nodes-in-pairs/  -->
+
+    <script>
+        let nodeList = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: null
+                    }
+                }
+            }
+        };
+
+        function ListNode(val, next) {
+            this.val = (val === undefined) ? 0 : val;
+            this.next = (next === undefined) ? null : next;
+        }
+
+        var swapPairs = function (head) {
+            if (!head || !head.next) return head;
+            var v1 = head, v2 = head.next, v3 = v2.next;
+            v2.next = v1;
+            v1.next = swapPairs(v3);
+            return v2;
+        };
+
+
+
+        console.warn(swapPairs(nodeList));
+
+    </script>
+</body>
+
+</html>
