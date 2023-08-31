@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>231. Power of Two</title>
+</head>
+
+<body>
+    <h1>1721. Swapping Nodes in a Linked List</h1>
+
+    <!-- https://leetcode.com/problems/swapping-nodes-in-a-linked-list/ -->
+
+    <script>
+        let nodeList = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: {
+                            val: 5,
+                            next: null
+                        }
+                    }
+                }
+            }
+
+        };
+
+
+        // iterative and rucursion approach
+        var swapNodes = function (head, k) {
+            if (!head || !head.next) return head;
+            let listNode = head;
+            let counter = 1;
+            let arr = [];
+            let frontVal = 0;
+            let backVal = 0;
+            while (listNode) {
+                arr.push(listNode.val)
+                listNode = listNode.next;
+            }
+            let n = arr.length;
+            frontVal = arr[k - 1];
+            backVal = arr[n - k];
+            listNode = head;
+
+            return swap(head, k, frontVal, backVal, 1, n);
+        }
+        var swap = function (head, k, frontVal, backVal, frontTrack, backTrack) {
+            if (!head) return head;
+            let res = swap(head.next, k, frontVal, backVal, frontTrack + 1, backTrack - 1)
+            if (backTrack == k) {
+                head.val = frontVal
+
+            } else if (frontTrack == k) {
+                head.val = backVal
+            }
+            return head;
+
+
+        }
+
+
+        /* // iterative approach
+        var swapNodes = function (head, k) {
+            if (!head || !head.next) return head;
+            let listNode = head;
+            let counter = 1;
+            let arr = [];
+            let frontVal = 0;
+            let backVal = 0;
+            while (listNode) {
+                arr.push(listNode.val)
+                listNode = listNode.next;
+            }
+            let n = arr.length;
+            frontVal = arr[k - 1];
+            backVal = arr[n - k];
+            listNode = head;
+
+            while (listNode) {
+                if (counter == k) {
+
+                    listNode.val = backVal;
+                }
+                if (counter == n - k + 1) {
+                    listNode.val = frontVal;
+                }
+
+                listNode = listNode.next;
+                counter++
+            }
+
+            return head;
+        } */
+
+
+
+        console.warn(swapNodes(nodeList, 2));
+
+    </script>
+</body>
+
+</html>

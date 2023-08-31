@@ -17,6 +17,30 @@
     <script>
 
         var lengthOfLongestSubstring = function (s) {
+            let set = new Set();
+            let long = 0;
+            let start = 0;
+            let end = 0;
+
+            while (end < s.length) {
+                if (!set.has(s[end])) {
+                    set.add(s[end]);
+                    end++
+                    if (set.size > long) {
+                        long = set.size;
+                    }
+                } else {
+                    set.delete(s[start]);
+                    start++
+                }
+            }
+
+            return long
+        };
+
+        console.warn(lengthOfLongestSubstring('qrsvbspk'));
+
+        /* var lengthOfLongestSubstring = function (s) {
             let start = 0;
             let end = 0;
             let maxLength = 0;
@@ -37,7 +61,7 @@
             return maxLength;
         };
 
-        console.warn(lengthOfLongestSubstring("abcabcbb"));
+        console.warn(lengthOfLongestSubstring("abcabcbb")); */
     </script>
 </body>
 
