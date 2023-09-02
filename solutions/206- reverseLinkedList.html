@@ -40,6 +40,35 @@
 
 
         var reverseList = function (head) {
+            if (!head || !head.next) return head;
+
+            let newHead = reverseList(head.next);
+            head.next.next = head;
+            head.next = null;
+            return newHead;
+        }
+
+        console.warn(JSON.stringify(reverseList(head), null, 2));
+
+
+        /*
+                var reverseList = function (head) {
+                    if (!head || !head.next) return head;
+                    let current = head;
+                    let previous = null;
+        
+                    while (current) {
+                        let nextNode = current.next;
+                        current.next = previous;
+                        previous = current;
+                        current = nextNode;
+                    }
+        
+                    return previous
+                } */
+
+
+        /* var reverseList = function (head) {
             let previous = null;
 
             while (head != null) {
@@ -50,8 +79,7 @@
             }
 
             return previous;
-        };
-        console.warn(reverseList(head));
+        }; */
 
 
 
