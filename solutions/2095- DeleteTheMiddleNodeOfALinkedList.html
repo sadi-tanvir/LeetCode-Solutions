@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2095. Delete the Middle Node of a Linked List</title>
+</head>
+
+<body>
+    <h1>2095. Delete the Middle Node of a Linked List</h1>
+
+    <!-- https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/ -->
+
+    <script>
+        let nodeList = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: {
+                            val: 5,
+                            next: {
+                                val: 6,
+                                next: null
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        var deleteMiddle = function (head) {
+            if (!head || !head.next) return null;
+
+            let slow = head;
+            let fast = head.next;
+
+            while (fast && fast.next) {
+                if (!fast.next.next) {
+                    break;
+                } else {
+                    slow = slow.next;
+                    fast = fast.next.next;
+                }
+            }
+
+            slow.next = slow.next.next
+            return head
+        };
+
+        console.warn(JSON.stringify(deleteMiddle(nodeList), null, 2));
+    </script>
+</body>
+
+</html>
