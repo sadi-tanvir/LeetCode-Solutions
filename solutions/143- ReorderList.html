@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>143. Reorder List</title>
+</head>
+
+<body>
+    <h1>143. Reorder List</h1>
+
+    <!-- https://leetcode.com/problems/reorder-list/ -->
+
+    <script>
+        let nodeList = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: {
+                            val: 5,
+                            next: null
+                        }
+                    }
+                }
+            }
+        };
+
+        var reorderList = function (head) {
+            if (!head || !head.next) return head;
+            let slow = head;
+            let fast = head.next;
+
+
+            while (fast && fast.next) {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+
+            fast = slow.next;
+            slow.next = null
+            slow = head;
+
+            let reversedFast = reverse(fast);
+            return mergeNodes(slow, reversedFast);
+        }
+
+        function reverse(head) {
+            if (!head || !head.next) return head;
+            let newHead = reverse(head.next);
+            head.next.next = head;
+            head.next = null;
+            return newHead;
+        }
+
+        function mergeNodes(list1, list2) {
+            if (!list2.next) {
+                let current = list1.next;
+                list1.next = list2;
+                list2.next = null;
+                list1.next.next = current;
+                return list1;
+            }
+
+            let res = mergeNodes(list1.next, list2.next);
+            let current = list1.next;
+            list1.next = list2;
+            list2.next = null;
+            list1.next.next = current;
+            return list1
+        }
+
+        console.warn(JSON.stringify(reorderList(nodeList), null, 2));
+    </script>
+</body>
+
+</html>
