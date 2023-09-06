@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>92. Reverse Linked List II</title>
+</head>
+
+<body>
+    <h1>92. Reverse Linked List II</h1>
+
+    <!-- https://leetcode.com/problems/reverse-linked-list-ii/ -->
+
+    <script>
+        let nodeList = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: {
+                            val: 5,
+                            next: {
+                                val: 6,
+                                next: null
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+
+
+        var reverseBetween = function (head, left, right) {
+            let start = head, current = head;
+            let count = 1;
+            while (count < left) {
+                start = current;
+                current = current.next;
+                count++;
+            };
+
+            let previous = null, tail = current;
+            while (count <= right) {
+                let nextNodes = current.next;
+                current.next = previous;
+                previous = current;
+                current = nextNodes;
+                count++
+            }
+
+            start.next = previous;
+            tail.next = current;
+
+            return left == 1 ? previous : head;
+        };
+
+        console.warn(JSON.stringify(reverseBetween(nodeList, 3, 4), null, 2));
+
+    </script>
+</body>
+
+</html>
