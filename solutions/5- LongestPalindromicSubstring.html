@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Longest Palindromic Substring</title>
+</head>
+
+<body>
+    <h1>5. Longest Palindromic Substring</h1>
+
+    <!-- https://leetcode.com/problems/longest-palindromic-substring/description/ -->
+
+    <script>
+
+        var longestPalindrome = function (s) {
+            let palindrome = s[0];
+            let current = "";
+
+            for (let i = 0; i < s.length; i++) {
+                for (let j = i; j < s.length; j++) {
+                    current = current + s[j];
+                    let start = 0;
+                    let end = current.length - 1;
+
+                    while (start < end) {
+                        if (current[start] !== current[end]) {
+                            break;
+                        }
+                        start++
+                        end--
+                        if (start >= end) {
+                            if(palindrome.length < current.length){
+                                palindrome = current;
+                            }
+                        }
+                    }
+                }
+
+                current = "";
+            }
+
+            return palindrome
+        };
+
+
+        console.warn(longestPalindrome("aacabdkacaa"));
+    </script>
+</body>
+
+</html>
