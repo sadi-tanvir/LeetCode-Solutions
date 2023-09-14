@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>121. Best Time to Buy and Sell Stock</title>
+</head>
+
+<body>
+    <h1>121. Best Time to Buy and Sell Stock</h1>
+
+    <!-- https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/ -->
+
+    <script>
+        const pricesArr = [7, 6, 4, 3, 1]
+
+
+        var maxProfit = function (prices) {
+            let minVal = prices[0];
+            let maxProfit = 0;
+            let n = prices.length;
+
+            for (let i = 0; i < n; i++) {
+                if (minVal > prices[i]) {
+                    minVal = prices[i];
+                };
+                let profit = prices[i] - minVal;
+                if(maxProfit < profit){
+                    maxProfit = profit;
+                }
+            }
+
+            return maxProfit
+        };
+
+        console.warn(maxProfit(pricesArr));
+    </script>
+</body>
+
+</html>
