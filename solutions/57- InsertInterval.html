@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>57. Insert Interval</title>
+</head>
+
+<body>
+    <h1>57. Insert Interval</h1>
+
+    <!-- https://leetcode.com/problems/insert-interval/description/ -->
+
+    <script>
+        var insert = function (intervals, newInterval) {
+            if (intervals.length > 0) {
+                for (let i = intervals.length - 1; i >= 0; i--) {
+                    if (intervals[i][0] > newInterval[0]) {
+                        intervals[i + 1] = intervals[i];
+                    } else {
+                        intervals[i + 1] = newInterval;
+                        break;
+                    }
+
+                    if (i === 0) {
+                        intervals[i] = newInterval
+                    }
+                }
+            } else {
+                intervals.push(newInterval)
+            }
+
+            let mergedIntevals = [intervals[0]];
+            for (let i = 1; i < intervals.length; i++) {
+                if (mergedIntevals[mergedIntevals.length - 1][1] >= intervals[i][0]) {
+                    mergedIntevals[mergedIntevals.length - 1] = [Math.min(...mergedIntevals[mergedIntevals.length - 1], ...intervals[i]), Math.max(...mergedIntevals[mergedIntevals.length - 1], ...intervals[i])]
+                } else {
+                    mergedIntevals.push(intervals[i])
+                }
+            }
+
+            return mergedIntevals;
+        };
+
+        console.warn(insert([[1, 3], [6, 9]], [2, 5]));
+    </script>
+</body>
+
+</html>
