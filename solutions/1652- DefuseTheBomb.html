@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1652. Defuse the Bomb</title>
+</head>
+
+<body>
+    <h1>1652. Defuse the Bomb</h1>
+
+    <!-- https://leetcode.com/problems/defuse-the-bomb/description/ -->
+
+    <script>
+
+        var decrypt = function (code, k) {
+            let n = code.length, sum = 0, count = 0;
+            let decryptedCodes = new Array(n).fill(0);
+
+            if (k < 0) {
+                for (let i = 0; i < n; i++) {
+                    for (let j = i - 1; count > k; j--) {
+                        if (j < 0) j = n - 1
+                        sum = sum + code[j];
+                        count--;
+                    }
+                    decryptedCodes[i] = sum;
+                    sum = 0;
+                    count = 0;
+                }
+            }
+
+            if (k > 0) {
+                for (let i = 0; i < n; i++) {
+                    for (let j = i + 1; count < k; j++) {
+                        if (j == n) j = 0;
+                        sum = sum + code[j];
+                        count++;
+                    }
+                    decryptedCodes[i] = sum;
+                    sum = 0;
+                    count = 0;
+                }
+            }
+
+            return decryptedCodes;
+        };
+
+        console.warn(decrypt([5, 7, 1, 4], 0));
+    </script>
+</body>
+
+</html>
