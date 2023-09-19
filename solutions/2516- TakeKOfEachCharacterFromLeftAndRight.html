@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2516. Take K of Each Character From Left and Right</title>
+</head>
+
+<body>
+    <h1>2516. Take K of Each Character From Left and Right</h1>
+
+    <!-- https://leetcode.com/problems/take-k-of-each-character-from-left-and-right/description/ -->
+
+    <script>
+        var takeCharacters = function (s, k) {
+            let CountABC = {
+                a: 0,
+                b: 0,
+                c: 0
+            }
+
+            let n = s.length, left = 0, right = 0, sum = n;
+
+            for (let i = 0; i < n; i++) {
+                if (s[i] == "a") CountABC["a"]++;
+                if (s[i] == "b") CountABC["b"]++;
+                if (s[i] == "c") CountABC["c"]++;
+            }
+
+            if (CountABC["a"] < k && CountABC["b"] < k && CountABC["c"] < k) return -1;
+
+            while (right < n) {
+                if (s[right] == "a") CountABC["a"]--;
+                if (s[right] == "b") CountABC["b"]--;
+                if (s[right] == "c") CountABC["c"]--;
+
+                while (CountABC["a"] < k || CountABC["b"] < k || CountABC["c"] < k) {
+                    if (s[left] == "a") CountABC["a"]++;
+                    if (s[left] == "b") CountABC["b"]++;
+                    if (s[left] == "c") CountABC["c"]++;
+                    left++
+                }
+
+                sum = Math.min(sum, n - (right + 1 - left))
+                right++
+            }
+
+            return sum;
+        };
+
+
+
+        // console.warn(takeCharacters("abc", 1));
+        console.warn(takeCharacters("a", 1));
+        // console.warn(takeCharacters("aabaaaacaabc", 2));
+        // console.warn(takeCharacters("cbaabccac", 3)); // ===> -1
+        // console.warn(takeCharacters("caccbbba", 1)); // ===> 3
+    </script>
+</body>
+
+</html>
