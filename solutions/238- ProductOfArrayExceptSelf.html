@@ -17,13 +17,13 @@
         var productExceptSelf = function (nums) {
             let n = nums.length;
             let output = new Array(n).fill(1);
-            let leftOfCurrrent = 1;
+            let leftOfCurrent = 1;
             let rightOfCurrent = 1;
 
             for (let i = 0, j = n - 1; i < n; i++, j--) {
-                output[i] = output[i] * leftOfCurrrent;
+                output[i] = output[i] * leftOfCurrent;
                 output[j] = output[j] * rightOfCurrent;
-                leftOfCurrrent = leftOfCurrrent * nums[i];
+                leftOfCurrent = leftOfCurrent * nums[i];
                 rightOfCurrent = rightOfCurrent * nums[j];
             }
 

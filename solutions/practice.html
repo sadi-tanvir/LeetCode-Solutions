@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>152. Maximum Product Subarray</title>
+</head>
+
+<body>
+    <h1>152. Maximum Product Subarray</h1>
+
+    <!-- https://leetcode.com/problems/maximum-product-subarray/description/ -->
+
+    <script>
+
+        var maxProduct = function (nums) {
+            let n = nums.length;
+            let pre = 1
+            let suff = 1;
+            let max = Number.MIN_SAFE_INTEGER;
+
+            for (let i = 0; i < n; i++) {
+                pre = pre * nums[i];
+                suff = suff * nums[n - i - 1]
+                if (pre > max) max = pre;
+                if (suff > max) max = suff;
+                if (nums[i] === 0) pre = 1;
+                if (nums[n - i - 1] === 0) suff = 1;
+            }
+
+            return max;
+        };
+
+        // console.warn(maxProduct([-2])); //---> 6
+        console.warn(maxProduct([-2, 3, 4, -1, 0, -2, 3, 5, -3, 1, 4, 0, 4, 6, -1, 4])); //---> 24
+        // console.warn(maxProduct([2, 3, -2, 5, 0, 3, 6, 4])); //---> 6
+        // console.warn(maxProduct([2, 3, -2, 4])); //---> 6
+        console.warn(maxProduct([-2, 0, -1])); //---> 6
+    </script>
+</body>
+
+</html>
