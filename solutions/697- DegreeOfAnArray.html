@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>697. Degree of an Array</title>
+</head>
+
+<body>
+    <h1>697. Degree of an Array</h1>
+
+    <!-- https://leetcode.com/problems/degree-of-an-array/description/ -->
+
+    <script>
+
+        var findShortestSubArray = function (nums) {
+            let count = new Map(), startIndex = new Map(), endIndex = new Map()
+            let n = nums.length, max = 0, res = Number.POSITIVE_INFINITY;
+
+            for (let i = 0; i < n; i++) {
+                if (!count.has(nums[i])) {
+                    startIndex.set(nums[i], i);
+                };
+                count.set(nums[i], (count.get(nums[i]) || 0) + 1);
+                endIndex.set(nums[i], i + 1);
+                max = Math.max(max, count.get(nums[i]))
+            };
+
+            for (const [key, value] of count) {
+                if (value === max) {
+                    let gap = endIndex.get(key) - startIndex.get(key);
+                    res = Math.min(res, gap)
+                }
+            }
+
+            return res;
+        };
+
+        console.warn(findShortestSubArray([1, 2, 2, 3, 1, 4, 2]));
+        // console.warn(findShortestSubArray([1, 2, 2, 3, 1]));
+    </script>
+</body>
+
+</html>
