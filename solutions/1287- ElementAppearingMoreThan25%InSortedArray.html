@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1287. Element Appearing More Than 25% In Sorted Array</title>
+</head>
+
+<body>
+    <h1>1287. Element Appearing More Than 25% In Sorted Array</h1>
+
+    <!-- https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/description/ -->
+
+    <script>
+
+        var findSpecialInteger = function (arr) {
+            let max = new Map();
+            let current = new Map();
+            max.set("key", arr[0]);
+            max.set("value", 1);
+            current.set("key", arr[0]);
+            current.set("value", 1);
+
+            for (let i = 1; i < arr.length; i++) {
+                if (current.get("key") == arr[i]) {
+                    current.set("value", current.get("value") + 1);
+                } else {
+                    current.set("key", arr[i]);
+                    current.set("value", 1);
+                }
+
+                if ((current.get("value") > max.get("value")) && (arr[i] !== arr[i + 1])) {
+                    max.set("key", current.get("key"));
+                    max.set("value", current.get("value"));
+                };
+            };
+
+            return max.get("key")
+        };
+
+        console.log(findSpecialInteger([1, 2, 2, 6, 6, 6, 6, 7, 10]));
+        // console.log(findSpecialInteger([1, 1]));
+
+    </script>
+</body>
+
+</html>
