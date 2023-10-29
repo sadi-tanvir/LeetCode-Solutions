@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1480. Running Sum of 1d Array</title>
+</head>
+
+<body>
+    <h1>1480. Running Sum of 1d Array</h1>
+
+    <!-- https://leetcode.com/problems/running-sum-of-1d-array/ -->
+
+    <script>
+
+        var runningSum = function (nums) {
+            let preSum = 0;
+
+            for (let i = 0; i < nums.length; i++) {
+                preSum += nums[i];
+                nums[i] = preSum;
+            }
+
+            return nums;
+        };
+
+        console.log(runningSum([1, 2, 3, 4]));
+        console.log(runningSum([1, 1, 1, 1, 1]));
+        console.log(runningSum([3, 1, 2, 10, 1]));
+
+    </script>
+</body>
+
+</html>
