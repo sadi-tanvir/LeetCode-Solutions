@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2765. Longest Alternating Subarray</title>
+</head>
+
+<body>
+    <h1>2765. Longest Alternating Subarray</h1>
+
+    <!-- https://leetcode.com/problems/longest-alternating-subarray/description/ -->
+
+    <script>
+
+        var alternatingSubarray = function (nums) {
+            let max = -1, cur = -1;
+
+            for (let i = 0; i < nums.length; i++) {
+                if ((nums[i + 1] - nums[i]) === 1) {
+                    cur = Math.max(2, cur + 1);
+                    max = Math.max(max, cur);
+                    if ((nums[i + 2] - nums[i + 1]) !== -1) cur = -1;
+                } else if ((nums[i + 1] - nums[i]) === -1) {
+                    cur = cur >= 2 ? ++cur : -1;
+                    max = Math.max(max, cur);
+                    if ((nums[i + 2] - nums[i + 1]) !== 1) cur = -1;
+                } else if ((nums[i + 1] - nums[i]) === 0) {
+                    cur = -1;
+                }
+            }
+
+            return max;
+        };
+
+        console.log(alternatingSubarray([2, 3, 4, 3, 4]));
+        console.log(alternatingSubarray([4, 5, 6]));
+        console.log(alternatingSubarray([21, 9, 5]));
+        console.log(alternatingSubarray([14, 30, 29, 49, 3, 23, 44, 21, 26, 52]));
+        console.log(alternatingSubarray([1, 2, 2, 1, 2, 3, 6, 2]));
+
+    </script>
+</body>
+
+</html>
