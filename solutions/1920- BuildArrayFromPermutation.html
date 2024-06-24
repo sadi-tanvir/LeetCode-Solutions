@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1920. Build Array from Permutation</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/build-array-from-permutation/description/ -->
+
+    <h1 style="color:brown">1920. Build Array from Permutation</h1>
+
+    <script>
+
+
+
+        // solution - 1
+        var buildArray = function (nums) {
+            let ans = [];
+            for (let i = 0; i < nums.length; i++) {
+                ans[i] = nums[nums[i]];
+            }
+            return ans;
+        };
+
+        console.log(buildArray([0,2,1,5,3,4]))
+        console.log(buildArray([5,0,1,2,3,4]))
+
+        
+        /*
+        // solution - 2
+        var buildArray = function (nums) {
+            let ans = [];
+            for (let i = 0; i < nums.length; i++) {
+                let temp = nums[i];
+                ans[i] = nums[nums[i]];
+            }
+            return ans;
+        };
+        */
+
+
+
+        /*
+        // solution - 2
+        var getConcatenation = function (nums) {
+            let ans = [];
+            for (let i = 0; i < 2; i++) {
+                ans.push(...nums);
+            }
+
+            return ans;
+        };
+        */
+
+    </script>
+</body>
+
+</html>
