@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2037. Minimum Number of Moves to Seat Everyone</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/description/ -->
+
+    <h1 style="color:brown">2037. Minimum Number of Moves to Seat Everyone</h1>
+
+    <script>
+    // 1st solution
+      var minMovesToSeat = function (seats, students) {
+            let count = 0;
+            seats.sort((a, b) => a - b);
+            students.sort((a, b) => a - b);
+
+            for (let i = 0; i < seats.length; i++) {
+                count += Math.abs(seats[i] - students[i]);
+            }
+
+            return count;
+        };
+
+        console.log(minMovesToSeat([3, 1, 5], [2, 7, 4]));
+        console.log(minMovesToSeat([4, 1, 5, 9], [1, 3, 2, 6]));
+        console.log(minMovesToSeat([2, 2, 6, 6], [1, 3, 2, 6]));
+
+
+        // 2nd solution
+        /* var minMovesToSeat = function (seats, students) {
+            let count = 0;
+
+            for (let i = 0; i < seats.length; i++) {
+                for (let j = 0; j < seats.length; j++) {
+                    if (seats[j] > seats[j + 1]) {
+                        let temp = seats[j];
+                        seats[j] = seats[j + 1];
+                        seats[j + 1] = temp;
+                    }
+                }
+            }
+
+            for (let i = 0; i < students.length; i++) {
+                for (let j = 0; j < students.length; j++) {
+                    if (students[j] > students[j + 1]) {
+                        let temp = students[j];
+                        students[j] = students[j + 1];
+                        students[j + 1] = temp;
+                    }
+                }
+            }
+
+            for (let i = 0; i < seats.length; i++) {
+                count += Math.abs(seats[i] - students[i]);
+            }
+
+            return count;
+        }; */
+    </script>
+</body>
+
+</html>
