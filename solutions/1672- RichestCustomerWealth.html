@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1672. Richest Customer Wealth</title>
+</head>
+
+<body>
+    <h1>1672. Richest Customer Wealth</h1>
+
+    <!-- https://leetcode.com/problems/richest-customer-wealth/description/ -->
+
+    <script>
+       var minimumOperations = function (nums) {
+            let count = 0;
+            for (let i = 0; i < nums.length; i++) if (nums[i] % 3 !== 0) count++
+            return count;
+        };
+
+        console.log(minimumOperations([1, 2, 3, 4]));
+        console.log(minimumOperations([3, 6, 9]));
+    </script>
+</body>
+
+</html>
