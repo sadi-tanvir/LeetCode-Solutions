@@ -5,12 +5,12 @@
 # 
 
 <div align="center">
-  <img style="margin-right: 30;" src="https://github.com/sabbirsami/t-bhai/assets/73050937/9b0f9f3c-5464-4bec-8f61-9846ecff9b9d"width="10%"/><img src="https://raw.githubusercontent.com/sadi-tanvir/LeetCode-Solutions/main/50-days-badge-2023.png"width="25%" hight="290px"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/8500070a-ba18-4806-b4ed-a22a0e343e3c"width="10%"/>
+  <img style="margin-right: 30;" src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win01.png?raw=true"width="20%"/><img src="https://raw.githubusercontent.com/sadi-tanvir/LeetCode-Solutions/main/assets/50-days-badge-2023.png"width="25%" hight="290px"/><img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win02.png?raw=true"width="20%"/>
 </div>
 <h3 align="center">50 Days of Problems Solving</h3>
 
 <div align="center">
-  <img style="margin-right: 30;" src="https://github.com/sabbirsami/t-bhai/assets/73050937/2d94ff79-6928-417e-acbf-1ff0a4b8a798"width="10%"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/59f0e25d-4ebe-4a1e-b15b-db20cd0199f6"width="40%"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/6c829cc9-3145-4253-a40f-cc159a6d94f2"width="40%"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/97c540ca-2a82-4fea-a81a-16c4c9dfb9d4"width="10%"/>
+  <img style="margin-right: 30;" src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win01.png?raw=true"width="10%"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/59f0e25d-4ebe-4a1e-b15b-db20cd0199f6"width="40%"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/6c829cc9-3145-4253-a40f-cc159a6d94f2"width="40%"/><img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win02.png?raw=true"width="10%"/>
 </div>
 
 ## LeetCode Solutions Repository
