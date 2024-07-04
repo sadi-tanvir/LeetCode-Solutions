@@ -10,7 +10,7 @@
 <h3 align="center">50 Days of Problems Solving</h3>
 
 <div align="center">
-  <img style="margin-right: 30;" src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win01.png?raw=true"width="10%"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/59f0e25d-4ebe-4a1e-b15b-db20cd0199f6"width="40%"/><img src="https://github.com/sabbirsami/t-bhai/assets/73050937/6c829cc9-3145-4253-a40f-cc159a6d94f2"width="40%"/><img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win02.png?raw=true"width="10%"/>
+  <img style="margin-right: 30;" src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win01.png?raw=true"width="10%"/><img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/score.png?raw=true"width="40%"/><img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/achievements.png?raw=true"width="40%"/><img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win02.png?raw=true"width="10%"/>
 </div>
 
 ## LeetCode Solutions Repository
