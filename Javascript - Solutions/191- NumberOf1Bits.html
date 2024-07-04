@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>191. Number of 1 Bits</title>
+</head>
+
+<body>
+    <h1>191. Number of 1 Bits</h1>
+
+    <!-- https://leetcode.com/problems/number-of-1-bits/description/ -->
+
+    <script>
+        // solution 1
+        var hammingWeight = function (n) {
+            const binary = n.toString(2);
+            return binary.match(/1/g || []).length;
+        };
+
+        console.log(hammingWeight(11))
+        console.log(hammingWeight(128))
+        console.log(hammingWeight(2147483645))
+    </script>
+</body>
+
+</html>
