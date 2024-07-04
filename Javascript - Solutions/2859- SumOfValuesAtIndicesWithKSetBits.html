@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2859. Sum of Values at Indices With K Set Bits</title>
+    <style>
+        body {
+            background-color: #121212; /* Dark background color */
+            color: #ffffff; /* Light text color for contrast */
+            font-family: Arial, sans-serif; /* Optional: change the font */
+        }
+
+        h1 {
+            color: #ffffff; /* Light text color for the heading */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2859. Sum of Values at Indices With K Set Bits</h1>
+
+    <!-- https://leetcode.com/problems/sum-of-values-at-indices-with-k-set-bits/description/ -->
+
+    <script>
+
+        var sumIndicesWithKSetBits = function (nums, k) {
+            let sum = 0;
+            for (let i = 0; i < nums.length; i++) {
+                let binary = i.toString(2);
+                let temp = binary.match(/1/g)?.length || 0;
+                if (temp === k) {
+                    sum += nums[i];
+                }
+            }
+
+            return sum;
+        };
+
+
+        console.log(sumIndicesWithKSetBits([5, 10, 1, 5, 2], 1))
+        console.log(sumIndicesWithKSetBits([4, 3, 2, 1], 2))
+    </script>
+</body>
+
+</html>
