@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2974. Minimum Number Game</title>
+</head>
+
+<body>
+    <h1>2974. Minimum Number Game</h1>
+
+    <!-- https://leetcode.com/problems/minimum-number-game/description/ -->
+
+    <script>
+
+        var numberGame = function (nums) {
+            nums.sort((a, b) => a - b);
+            let arr = [];
+            for (let i = 0; i < nums.length; i += 2) {
+                arr[arr.length] = nums[i + 1];
+                arr[arr.length] = nums[i];
+            }
+
+            return arr;
+        };
+
+
+        console.warn(numberGame([5, 4, 2, 3]));
+        console.warn(numberGame([2, 5]));
+    </script>
+</body>
+
+</html>
