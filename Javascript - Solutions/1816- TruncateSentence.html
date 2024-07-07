@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1816. Truncate Sentence</title>
+</head>
+
+<body>
+    <h1>1816. Truncate Sentence</h1>
+
+    <!-- https://leetcode.com/problems/truncate-sentence/description/  -->
+
+    <script>
+        function truncateSentence(s, k) {
+            s = s.split(" ");
+            s.length = k;
+
+            return s.join(" ");
+        }
+
+        console.warn(truncateSentence("Hello how are you Contestant", 4));
+        console.warn(truncateSentence("What is the solution to this problem", 4));
+        console.warn(truncateSentence("chopper is not a tanuki", 5));
+
+    </script>
+</body>
+
+</html>
