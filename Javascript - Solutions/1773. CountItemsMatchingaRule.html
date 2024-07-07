@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1773. Count Items Matching a Rule</title>
+</head>
+
+<body>
+    <h1>1773. Count Items Matching a Rule</h1>
+
+    <!-- https://leetcode.com/problems/count-items-matching-a-rule/description/  -->
+
+    <script>
+
+        var countMatches = function (items, ruleKey, ruleValue) {
+            let count = 0;
+            for (item of items) {
+                let [type, color, name] = item;
+                if ((ruleKey === "type") && (type === ruleValue) ||
+                    (ruleKey === "color") && (color === ruleValue) ||
+                    (ruleKey === "name") && (name === ruleValue)
+                ) count++;
+            }
+
+            return count;
+        };
+
+
+        // solution - 2
+        /* var countMatches = function (items, ruleKey, ruleValue) {
+            let count = 0;
+            for (let i = 0; i < items.length; i++) {
+                if ((ruleKey === "type") && (items[i][0] === ruleValue)) count++;
+                else if ((ruleKey === "color") && (items[i][1] === ruleValue)) count++;
+                else if ((ruleKey === "name") && (items[i][2] === ruleValue)) count++;
+            }
+
+            return count;
+        };
+ */
+        // console.warn(countMatches([["phone", "blue", "pixel"], ["computer", "silver", "lenovo"], ["phone", "gold", "iphone"]], "color", "silver"));
+        // console.warn(countMatches([["phone", "blue", "pixel"], ["computer", "silver", "phone"], ["phone", "gold", "iphone"]], "type", "phone"));
+        console.warn(countMatches([["qqqq", "qqqq", "qqqq"], ["qqqq", "qqqq", "qqqq"], ["qqqq", "qqqq", "qqqq"], ["qqqq", "qqqq", "qqqq"], ["qqqq", "qqqq", "qqqq"], ["qqqq", "qqqq", "qqqq"], ["qqqq", "qqqq", "qqqq"]], "name", "qqqq"));
+
+    </script>
+</body>
+
+</html>
