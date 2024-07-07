@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1528. Shuffle String</title>
+</head>
+
+<body>
+    <h1>1528. Shuffle String</h1>
+
+    <!-- https://leetcode.com/problems/shuffle-string/  -->
+
+    <script>
+
+        var restoreString = function (s, indices) {
+            let n = indices.length;
+            let newStr = new Array(n);
+            for (let i = 0; i < n; i++) {
+                newStr[indices[i]] = s[i];
+            }
+            return newStr.join("");
+        };
+
+        console.warn(restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]));
+        console.warn(restoreString("abc", [0, 1, 2]));
+
+    </script>
+</body>
+
+</html>
