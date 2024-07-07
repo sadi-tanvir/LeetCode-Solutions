@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3065. MinimumOperationstoExceedThresholdValueI</title>
+    <title>3065. Minimum Operations to Exceed Threshold Value I</title>
 </head>
 
 <body>
