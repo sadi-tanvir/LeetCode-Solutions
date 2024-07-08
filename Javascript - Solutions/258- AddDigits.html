@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>258. Add Digits</title>
+</head>
+
+<body>
+    <h1>258. Add Digits</h1>
+
+    <!-- https://leetcode.com/problems/add-digits/description/ -->
+
+    <script>
+        // solution - 1 mathematical approach 
+        var addDigits = function (num) {
+            return ((num != 0) && (num % 9)) === 0 ? 9 : num % 9;
+        };
+
+        // solution - 2 recursive approach
+        /* var addDigits = function (num) {
+            if (num < 10) return num;
+            num = num.toString().split("").reduce((carry, item) => carry + Number(item), 0);
+            return addDigits(num);
+        }; */
+
+        // solution - 3 iterative approach
+        /* var addDigits = function (num) {
+            while (num > 9) {
+                num = num.toString().split("").reduce((carry, item) => carry + Number(item), 0);
+            }
+            return num;
+        }; */
+
+        console.log(addDigits(38));
+        console.log(addDigits(0));
+    </script>
+</body>
+
+</html>
