@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1684. Count the Number of Consistent Strings</title>
+    <style>
+        body {
+            background-color: #121212;
+            /* Dark background color */
+            color: #ffffff;
+            /* Light text color for contrast */
+            font-family: Arial, sans-serif;
+            /* Optional: change the font */
+        }
+
+        h1 {
+            color: #ffffff;
+            /* Light text color for the heading */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1684. Count the Number of Consistent Strings</h1>
+
+    <!-- https://leetcode.com/problems/count-the-number-of-consistent-strings/description/ -->
+
+    <script>
+
+        var countConsistentStrings = function (allowed, words) {
+            let count = 0;
+            for(let i = 0; i < words.length; i++){
+                let valid = true;
+                for(let j = 0; j < words[i].length; j++){
+                    if(!allowed.includes(words[i][j])){
+                        valid = false;
+                    }
+                }
+                if(valid) count++;
+            }
+            return count;
+        };
+
+
+        console.log(countConsistentStrings("ab", ["ad", "bd", "aaab", "baa", "badab"]))
+        console.log(countConsistentStrings("abc", ["a","b","c","ab","ac","bc","abc"]))
+    </script>
+</body>
+
+</html>
