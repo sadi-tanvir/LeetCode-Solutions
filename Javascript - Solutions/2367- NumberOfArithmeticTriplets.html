@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2367. Number of Arithmetic Triplets</title>
+</head>
+
+<body>
+    <h1>2367. Number of Arithmetic Triplets</h1>
+
+    <!-- https://leetcode.com/problems/number-of-arithmetic-triplets/description/ -->
+
+    <script>
+        // solution - 1 mathematical approach 
+        var arithmeticTriplets = function (nums, diff) {
+            let n = nums.length;
+            let count = 0;
+            for (let i = 0; i < n - 2; i++) {
+                for (let j = i + 1; j < n - 1; j++) {
+                    for (let k = j + 1; k < n; k++) {
+                        let match1 = nums[j] - nums[i];
+                        let match2 = nums[k] - nums[j];
+                        if ((match1 === diff) && (match2 === diff)) count++;
+                    }
+                }
+            }
+
+            return count;
+        };
+
+        console.log(arithmeticTriplets([0, 1, 4, 6, 7, 10], 3));
+        console.log(arithmeticTriplets([4, 5, 6, 7, 8, 9], 2));
+    </script>
+</body>
+
+</html>
