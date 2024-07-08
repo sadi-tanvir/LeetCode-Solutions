@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2108. Find First Palindromic String in the Array</title>
+</head>
+
+<body>
+    <h1>2108. Find First Palindromic String in the Array</h1>
+
+    <!-- https://leetcode.com/problems/find-first-palindromic-string-in-the-array/description/ -->
+
+    <script>
+        // solution - 1 mathematical approach 
+        function firstPalindrome(words) {
+            for (let i = 0; i < words.length; i++) {
+                let start = 0;
+                let end = words[i].length - 1;
+                let isPalindrome = true;
+                while ((words.length % 2 === 0) ? start < end : start <= end) {
+                    if (words[i][start++] != words[i][end--]) {
+                        isPalindrome = false;
+                        break;
+                    };
+                }
+                if (isPalindrome) {
+                    return words[i];
+                }
+            }
+
+            return "";
+        }
+
+        console.log(firstPalindrome(["abc", "car", "ada", "racecar", "cool"]));
+        console.log(firstPalindrome(["notapalindrome", "racecar"]));
+        console.log(firstPalindrome(["def", "ghi"]));
+    </script>
+</body>
+
+</html>
