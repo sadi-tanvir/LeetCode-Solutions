@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2535. Difference Between Element Sum and Digit Sum of an Array</title>
+</head>
+
+<body>
+    <h1>2535. Difference Between Element Sum and Digit Sum of an Array</h1>
+
+    <!-- https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/description/ -->
+
+    <script>
+
+        var differenceOfSum = function (nums) {
+            let sum = nums.reduce((pre, curr) => pre + curr);
+            let digitSum = nums.join("").split("").reduce((pre, curr) => Number(pre) + Number(curr), 0);
+            return sum - digitSum;
+        };
+
+        // 2nd solution
+        /* var differenceOfSum = function (nums) {
+            let sum = 0;
+            let digitSum = nums.join("").split("").reduce((a, b) => Number(a) + Number(b), 0);
+            for (let i = 0; i < nums.length; i++) sum += nums[i];
+            return sum - digitSum;
+        }; */
+
+
+        console.warn(differenceOfSum([1, 15, 6, 3]));
+    </script>
+</body>
+
+</html>
