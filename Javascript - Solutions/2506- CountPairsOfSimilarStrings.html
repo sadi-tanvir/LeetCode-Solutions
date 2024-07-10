@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2506. Count Pairs Of Similar Strings</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2506. Count Pairs Of Similar Strings</h1>
+
+    <!-- https://leetcode.com/problems/count-pairs-of-similar-strings/description/ -->
+
+    <script>
+
+        var similarPairs = function (words) {
+            let count = 0;
+            for(let i = 0; i < words.length; i++){
+                let setM = new Set(words[i]);
+                words[i] = [...setM].sort();
+            }
+            
+            for(let i = 0; i < words.length - 1; i++){
+                for(let j = i + 1; j < words.length; j++){
+                   if(words[i].join("") === words[j].join("")) count++
+                }
+            }
+
+            return count;
+        };
+
+        /* var similarPairs = function (words) {
+            let count = 0;
+            for(let i = 0; i < words.length - 1; i++){
+                for(let j = i +1; j < words.length; j++){
+                    let setA = new Set(words[i]);
+                    let setB = new Set(words[j]);
+                    if((setA.size === setB.size) && [...setA].every((char) => setB.has(char))){
+                        count++
+                    }
+                }
+            }
+
+            return count;
+        }; */
+
+        console.log(similarPairs(["aba", "aabb", "abcd", "bac", "aabc"]));
+        console.log(similarPairs(["aabb", "ab", "ba"]));
+        console.log(similarPairs(["nba", "cba", "dba"]));
+    </script>
+</body>
+
+</html>
