@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1009. Complement of Base 10 Integer</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1009. Complement of Base 10 Integer</h1>
+
+    <!-- https://leetcode.com/problems/complement-of-base-10-integer/description/ -->
+
+    <script>
+
+        var bitwiseComplement = function (n) {
+            let binary = n.toString(2);
+            let complement = "";
+            for(let i = 0; i < binary.length; i++){
+                if(binary[i] === '0'){
+                    complement = complement + "1";
+                }else {
+                    complement = complement + "0";
+                }
+            }
+
+            
+            return parseInt(complement, 2);
+        };
+
+
+        console.log(bitwiseComplement(5));
+        //console.log(similarPairs(["aabb", "ab", "ba"]));
+        //console.log(similarPairs(["nba", "cba", "dba"]));
+    </script>
+</body>
+
+</html>
