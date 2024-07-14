@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2520. Count the Digits That Divide a Number</title>
+</head>
+
+<body>
+    <h1>2520. Count the Digits That Divide a Number</h1>
+
+    <!-- https://leetcode.com/problems/count-the-digits-that-divide-a-number/ -->
+
+
+    <script>
+        var countDigits = function (num) {
+            let count = 0, n = num;
+            while (n) {
+                let lastDigit = n % 10;
+                if (num % lastDigit === 0) count++;
+                n = parseInt(n / 10);
+            };
+            return count;
+        };
+
+        console.warn(countDigits(7));
+        console.warn(countDigits(121));
+        console.warn(countDigits(1248));
+
+    </script>
+</body>
+
+</html>
