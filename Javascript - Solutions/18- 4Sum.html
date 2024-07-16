@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18. 4Sum</title>
+</head>
+<body>
+    <h1>18. 4Sum</h1>
+
+    <!-- https://leetcode.com/problems/4sum/description/ -->
+
+
+    <script>
+        var fourSum = function (nums, target) {
+            nums = nums.sort((a, b) => a - b);
+            let result = [];
+            let n = nums.length;
+
+            for (let i = 0; i < n - 3; i++) {
+                if (i > 0 && nums[i] === nums[i - 1]) continue;
+                for (let j = i + 1; j < n - 2; j++) {
+                    if (j > i + 1 && nums[j] === nums[j - 1]) continue;
+                    let leftPointer = j + 1, rightPointer = n - 1;
+                    while (leftPointer < rightPointer) {
+                        let sum = nums[i] + nums[j] + nums[leftPointer] + nums[rightPointer];
+                        if (sum === target) {
+                            let tempArr = [nums[i], nums[j], nums[leftPointer], nums[rightPointer]];
+                            result.push(tempArr);
+                            while (leftPointer < rightPointer && nums[leftPointer] === nums[leftPointer + 1]) leftPointer++;
+                            while (leftPointer < rightPointer && nums[rightPointer] === nums[rightPointer - 1]) rightPointer--;
+                            leftPointer++;
+                        } else if (sum < target) {
+                            leftPointer++;
+                        } else {
+                            rightPointer--;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        };
+
+
+        console.warn(fourSum([1, 0, -1, 0, -2, 2], 0));
+        console.warn(fourSum([2, 2, 2, 2, 2], 8));
+        console.warn(fourSum([-5, 5, 4, -3, 0, 0, 4, -2], 4));
+        console.warn(fourSum([0, 0, 0, 0], 0));
+        console.warn(fourSum([-3, -1, 0, 2, 4, 5], 0));
+    </script>
+</body>
+
+</html>
