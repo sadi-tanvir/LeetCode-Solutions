@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>443. String Compression</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000;">
+    <div>
+        <h1>443. String Compression</h1>
+    </div>
+
+    <!-- https://leetcode.com/problems/string-compression/description/ -->
+
+
+    <script>
+        var compress = function (chars) {
+            let n = chars.length;
+            if (n === 1) return 1;
+            let index = 0, currentChar = chars[0], tempCount = 0;
+
+            for (let i = 1; i <= n; i++) {
+                if (currentChar === chars[i]) tempCount++;
+                else {
+                    chars[index++] = currentChar;
+                    if (tempCount > 0) {
+                        let countChar = (tempCount + 1).toString();
+                        for (const char of countChar) chars[index++] = char;
+                    }
+
+                    if (i < n) {
+                        tempCount = 0;
+                        currentChar = chars[i];
+                    }
+                }
+            }
+
+            return index;
+        };
+
+        console.warn(compress(["a", "b", "b", "c", "c", "c"]));
+        console.warn(compress(["a"]));
+        console.warn(compress(["a", "a", "a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]));
+    </script>
+</body>
+
+</html>
