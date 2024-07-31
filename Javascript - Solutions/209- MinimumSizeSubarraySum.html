@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>209. Minimum Size Subarray Sum</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>209. Minimum Size Subarray Sum</h1>
+
+    <!-- https://leetcode.com/problems/minimum-size-subarray-sum/description/ -->
+
+
+    <script>
+        var minSubArrayLen = function (target, nums) {
+            let n = nums.length,
+                minLen = n + 2,
+                left = 0,
+                right = 0,
+                currentSum = nums[left];
+
+            while ((left < n) && (right < n)) {
+                if (currentSum < target) {
+                    right++;
+                    currentSum += nums[right];
+                } else if (currentSum >= target) {
+                    minLen = Math.min(minLen, right - left + 1);
+                    left++;
+                    currentSum -= nums[left - 1];
+                }
+            }
+
+            return minLen == n + 2 ? 0 : minLen;
+        };
+
+        console.warn(minSubArrayLen(7, [2, 3, 1, 2, 4, 3])); // 2
+        console.warn(minSubArrayLen(4, [1, 4, 4])); // 1
+        console.warn(minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1])); // 0
+        console.warn(minSubArrayLen(11, [1, 2, 3, 4, 5])); // 3
+        console.warn(minSubArrayLen(6, [10, 2, 3])); // 1
+        console.warn(minSubArrayLen(7, [1, 1, 1, 1, 7])); // 1
+    </script>
+</body>
+
+</html>
