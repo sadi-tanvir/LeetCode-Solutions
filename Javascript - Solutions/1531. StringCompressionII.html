@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1531. String Compression II</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>1531. String Compression II</h1>
+
+    <!-- https://leetcode.com/problems/string-compression-ii/description/ -->
+
+
+    <script>
+        var getLengthOfOptimalCompression = function (s, k) {
+            s = s.split("").sort();
+            let n = s.length;
+            let newStr = "";
+            let currentStr = s[0];
+            let tempCount = 1;
+            for (let i = 1; i <= n; i++) {
+                if (currentStr === s[i]) {
+                    tempCount++;
+                } else {
+                    newStr += currentStr + (tempCount > 1 ? tempCount : "");
+                    if (i < n) {
+                        tempCount = 1;
+                        currentStr = s[i]
+                    }
+                }
+            }
+
+            return newStr;
+            // return newStr.length - k;
+        };
+
+
+        console.warn(getLengthOfOptimalCompression("aabaabbcbbbaccc", 6));
+        // console.warn(getLengthOfOptimalCompression("aaabcccd", 2));
+        // console.warn(getLengthOfOptimalCompression("aabbaa", 2));
+        // console.warn(getLengthOfOptimalCompression("aaaaaaaaaaa", 0));
+    </script>
+</body>
+
+</html>
