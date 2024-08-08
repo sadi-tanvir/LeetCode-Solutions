@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1108. Defanging an IP Address</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>1108. Defanging an IP Address</h1>
+
+    <!-- https://leetcode.com/problems/defanging-an-ip-address/description/ -->
+
+
+    <script>
+        var defangIPaddr = function (address) {
+            return address.replaceAll(".", "[.]");
+        };
+
+        /* var defangIPaddr = function (address) {
+            let res = address.split(".").join("[.]");
+            return res;
+        }; */
+
+        console.warn(defangIPaddr("1.1.1.1"));
+    </script>
+</body>
+
+</html>
