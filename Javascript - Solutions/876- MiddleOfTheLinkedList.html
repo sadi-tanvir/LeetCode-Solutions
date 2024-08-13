@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>876. Middle of the Linked List</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>876. Middle of the Linked List</h1>
+
+    <!-- https://leetcode.com/problems/middle-of-the-linked-list/description/ -->
+
+
+    <script>
+
+        const list = {
+            val: 1,
+            next: {
+                val: 2,
+                next: {
+                    val: 3,
+                    next: {
+                        val: 4,
+                        next: {
+                            val: 5,
+                            next: {
+                                val: 6,
+                                next: null
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        var middleNode = function (head) {
+            let slowPointer = head; 
+            let fastPointer = head;
+
+            while (fastPointer != null && fastPointer.next != null) {
+                slowPointer = slowPointer.next;
+                fastPointer = fastPointer.next.next;
+            };
+
+            return slowPointer;
+        };
+
+        console.warn(middleNode(list));
+    </script>
+</body>
+
+</html>
