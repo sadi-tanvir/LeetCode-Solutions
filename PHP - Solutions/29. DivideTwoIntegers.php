@@ -26,7 +26,7 @@
             } else if ($res <= $min) {
                 return $min;
             } else {
-                return $res;
+                return abs($res);
             }
         }
     }
