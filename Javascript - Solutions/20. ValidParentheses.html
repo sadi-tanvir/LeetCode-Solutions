@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20. Valid Parentheses</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>20. Valid Parentheses</h1>
+
+    <!-- https://leetcode.com/problems/valid-parentheses/description/ -->
+
+
+    <script>
+        var isValid = function (s) {
+            const brackets = {
+                "(": ")",
+                "[": "]",
+                "{": "}"
+            };
+            let index = 0;
+
+            while (index >= 0 || s.length > 0) {
+                if (index > s.length) {
+                    break;
+                }
+                if (brackets[s[index]] && brackets[s[index]] === s[index + 1]) {
+                    s = s.slice(0, index) + s.slice(index + 2);
+                    index--;
+                } else {
+                    index++;
+                }
+            }
+
+            return s.length === 0;
+        };
+
+        console.warn(isValid("()"));
+        console.warn(isValid("[](){}"));
+        console.warn(isValid("{[]}"));
+        console.warn(isValid("(]"));
+        console.warn(isValid("]"));
+    </script>
+</body>
+
+</html>
