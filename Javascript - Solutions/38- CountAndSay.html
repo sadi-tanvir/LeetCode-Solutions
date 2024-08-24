@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38. Count and Say</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>38. Count and Say</h1>
+
+    <!-- https://leetcode.com/problems/count-and-say/description/ -->
+
+
+    <script>
+
+        var countAndSay = function (n) {
+            let sequence = "0";
+            sequence = generateSequence(n, sequence);
+            return sequence;
+        };
+
+        var generateSequence = function (n, sequence) {
+            if (n === 0) return sequence;
+            sequence = generateNextTerm(sequence);
+            return generateSequence(n - 1, sequence);
+        };
+
+        function generateNextTerm(sequence) {
+            if (sequence === "0") {
+                return "1";
+            }
+            let nextSequence = "";
+            let currentChar = "";
+            let charCount = 0;
+
+            for (let i = 0; i < sequence.length; i++) {
+                if (currentChar === sequence[i]) {
+                    charCount++;
+                } else {
+                    if (charCount > 0) {
+                        nextSequence += charCount + currentChar;
+                    }
+                    currentChar = sequence[i];
+                    charCount = 1;
+                }
+            }
+
+            if (charCount > 0) {
+                nextSequence += charCount + currentChar;
+            }
+
+            return nextSequence;
+        }
+
+        console.warn(countAndSay(4));
+        console.warn(countAndSay(1));
+
+        /* let count = "0";
+        var countAndSay = function (n) {
+            if (n === 0) {
+                return;
+            }
+            // 1211
+            count = devide(count);
+            console.log(count, "got from another function");
+            countAndSay(n - 1);
+            return count;
+        };
+
+        function devide(count) {
+            if (count == "0") {
+                return "1"
+            };
+            let temp = "";
+            let currentVal = "";
+            let currentValCount = 0;
+            for (let i = 0; i < count.length; i++) {
+                if (currentVal == count[i]) {
+                    currentValCount++;
+                } else {
+                    let totalCount = currentValCount === 0 ? "" : currentValCount;
+                    temp = temp + totalCount + currentVal;
+                    currentVal = count[i];
+                    currentValCount = 1;
+                }
+            }
+            if (currentValCount > 0) {
+                temp = temp + currentValCount + currentVal;
+            }
+            return temp;
+        }
+
+        console.warn(countAndSay(4)); */
+        // console.warn(countAndSay(1));
+    </script>
+</body>
+
+</html>
