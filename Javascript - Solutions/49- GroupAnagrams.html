@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>49. Group Anagrams</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>49. Group Anagrams</h1>
+
+    <!-- https://leetcode.com/problems/group-anagrams/description/ -->
+
+
+    <script>
+        var groupAnagrams = function (strs) {
+            let temp = {};
+            let result = [];
+            let n = strs.length;
+            let tempIdx = 0;
+
+            for (let i = 0; i < n; i++) {
+                let sorted = strs[i].split("").sort().join("");
+                if (isset(temp[sorted])) {
+                    result[temp[sorted] - 1].push(strs[i]);
+                } else {
+                    temp[sorted] = ++tempIdx;
+                    result[tempIdx - 1] = [strs[i]];
+                }
+            }
+
+            return result;
+        };
+
+        console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+    </script>
+</body>
+
+</html>
