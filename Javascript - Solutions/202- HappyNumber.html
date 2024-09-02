@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>202. Happy Number</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>202. Happy Number</h1>
+
+    <!-- https://leetcode.com/problems/happy-number/description/ -->
+
+
+    <script>
+        var isHappy = function (n) {
+            let numbers = new Set();
+            while (n != 1) {
+                if (numbers.has(n)) return false;
+                numbers.add(n);
+                let sum = 0;
+                while (n > 0) {
+                    let digit = n % 10;
+                    sum += digit * digit;
+                    n = Math.floor(n / 10);
+                }
+
+                n = sum;
+            }
+
+            return n === 1;
+        };
+
+        console.warn(isHappy(19));
+        console.warn(isHappy(2));
+    </script>
+</body>
+
+</html>
