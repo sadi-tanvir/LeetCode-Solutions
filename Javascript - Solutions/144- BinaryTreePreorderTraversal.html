@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>144. Binary Tree Preorder Traversal</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>144. Binary Tree Preorder Traversal</h1>
+
+    <!-- https://leetcode.com/problems/binary-tree-preorder-traversal/description/ -->
+
+
+    <script>
+        var preorderTraversal = function (root) {
+            let res = [];
+            preOrder(root, res);
+            return res;
+        };
+
+        function preOrder(root, res) {
+            if (root === null) return;
+            res.push(root.val);
+            preOrder(root.left, res);
+            preOrder(root.right, res);
+        }
+
+        // console.warn(preorderTraversal([1,null,2,3]));
+        // console.warn(preorderTraversal([1,2,3,4,5,null,8,null,null,6,7,9]));
+    </script>
+</body>
+
+</html>
