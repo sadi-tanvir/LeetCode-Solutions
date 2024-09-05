@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>102. Binary Tree Level Order Traversal</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>102. Binary Tree Level Order Traversal</h1>
+
+    <!-- https://leetcode.com/problems/binary-tree-level-order-traversal/ -->
+
+
+    <script>
+        const tree = {
+            val: 3,
+            left: {
+                val: 9,
+                left: null,
+                right: null
+            },
+            right: {
+                val: 20,
+                left: {
+                    val: 15,
+                    left: null,
+                    right: null
+                },
+                right: {
+                    val: 7,
+                    left: null,
+                    right: null
+                }
+            }
+        };
+
+        var levelOrder = function (root) {
+            if (root === null) return;
+            let res = [];
+            let queue = [];
+            queue.push(root);
+            queue.push(null);
+            res.push([]);
+
+            while (queue.length) {
+                let currentNode = queue.shift();
+                if (currentNode === null) {
+                    if (queue.length === 0) break;
+                    else {
+                        queue.push(null);
+                        res.push([]);
+                    }
+                } else {
+                    res[res.length - 1].push(currentNode.val);
+                    if (currentNode.left) queue.push(currentNode.left);
+
+                    if (currentNode.right) queue.push(currentNode.right);
+                }
+            }
+
+            return res;
+        };
+
+        console.warn(levelOrder(tree));
+    </script>
+</body>
+
+</html>
