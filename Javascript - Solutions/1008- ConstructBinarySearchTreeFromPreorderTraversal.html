@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1008. Construct Binary Search Tree from Preorder Traversal</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>1008. Construct Binary Search Tree from Preorder Traversal</h1>
+
+    <!-- https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/ -->
+
+
+    <script>
+        const tree = {
+            val: 8,
+            left: {
+                val: 5,
+                left: {
+                    val: 1,
+                    left: null,
+                    right: null
+                },
+                right: {
+                    val: 7,
+                    left: null,
+                    right: null
+                }
+            },
+            right: {
+                val: 10,
+                left: null,
+                right: {
+                    val: 12,
+                    left: null,
+                    right: null
+                }
+            }
+        };
+
+        function TreeNode(val, left, right) {
+            this.val = (val === undefined ? 0 : val)
+            this.left = (left === undefined ? null : left)
+            this.right = (right === undefined ? null : right)
+        }
+
+        var bstFromPreorder = function (preorder) {
+            let root = null
+
+            for (let i = 0; i < preorder.length; i++) {
+                const newNode = new TreeNode(preorder[i]);
+                root = addTree(root, newNode);
+            }
+
+            return root;
+        };
+
+        function addTree(root, newNode) {
+            if (root === null) {
+                root = newNode;
+                return root;
+            };
+
+            if (root.val < newNode.val) {
+                if (root.right === null) {
+                    root.right = newNode;
+                } else {
+                    addTree(root.right, newNode);
+                }
+            } else {
+                if (root.left === null) {
+                    root.left = newNode;
+                } else {
+                    addTree(root.left, newNode);
+                }
+            }
+
+            return root;
+        }
+
+        console.warn(bstFromPreorder([8, 5, 1, 7, 10, 12]));
+    </script>
+</body>
+
+</html>
