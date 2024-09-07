@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>102. Binary Tree Level Order Traversal</title>
+    <title>100. Same Tree</title>
 </head>
 
 <body style="width: 100vw; height: 100vh; background: #000; color: white">
-    <h1>102. Binary Tree Level Order Traversal</h1>
+    <h1>100. Same Tree</h1>
 
-    <!-- https://leetcode.com/problems/binary-tree-level-order-traversal/ -->
+    <!-- https://leetcode.com/problems/same-tree/description/ -->
+
 
     <?php
 
