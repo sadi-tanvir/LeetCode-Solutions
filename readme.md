@@ -5,7 +5,10 @@
 # 
 
 <div align="center">
-  <img style="margin-right: 30;" src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win01.png?raw=true"width="20%"/><img src="https://raw.githubusercontent.com/sadi-tanvir/LeetCode-Solutions/main/assets/50-days-badge-2023.png"width="25%" hight="290px"/><img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win02.png?raw=true"width="20%"/>
+  <img style="margin-right: 30;" src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win01.png?raw=true"width="20%"/>
+  <img style="margin-right: 10px;" src="https://raw.githubusercontent.com/sadi-tanvir/LeetCode-Solutions/main/assets/50-days-badge-2023.png"width="20%" hight="290px"/>
+  <img style="margin-left: 10px;" src="https://raw.githubusercontent.com/sadi-tanvir/LeetCode-Solutions/main/assets/50-days-badge-2023.png"width="20%" hight="290px"/>
+  <img src="https://github.com/sadi-tanvir/LeetCode-Solutions/blob/main/assets/win02.png?raw=true"width="20%"/>
 </div>
 <h3 align="center">50 Days of Problems Solving</h3>
 
