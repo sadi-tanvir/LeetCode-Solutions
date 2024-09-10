@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100. Same Tree</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>100. Same Tree</h1>
+
+    <!-- https://leetcode.com/problems/same-tree/description/ -->
+
+
+    <script>
+        const tree1 = {
+            val: 3,
+            left: {
+                val: 9,
+                left: null,
+                right: null
+            },
+            right: {
+                val: 20,
+                left: {
+                    val: 15,
+                    left: null,
+                    right: null
+                },
+                right: {
+                    val: 7,
+                    left: null,
+                    right: null
+                }
+            }
+        };
+        const tree2 = {
+            val: 3,
+            left: {
+                val: 9,
+                left: null,
+                right: null
+            },
+            right: {
+                val: 20,
+                left: {
+                    val: 15,
+                    left: null,
+                    right: null
+                },
+                right: {
+                    val: 7,
+                    left: null,
+                    right: null
+                }
+            }
+        };
+
+        var isSameTree = function (p, q) {
+            if (!p && !q) return true;
+
+            if (p && q && (p.val === q.val)) {
+                return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+            }
+
+            return false;
+        };
+
+        console.warn(isSameTree(tree1, tree2));
+    </script>
+</body>
+
+</html>
