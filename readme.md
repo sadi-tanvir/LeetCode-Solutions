@@ -13,7 +13,10 @@
 <h3 align="center">50 Days of Problems Solving</h3>
 
 <div align="center">
-  <img style="margin-right: 30;" src="https://github.com/user-attachments/assets/fce80a75-b58c-4b10-8c44-6ea01f6058aa" width="10%"/><img src="https://github.com/user-attachments/assets/2bc634ce-7d36-4282-a867-ee1bbdaad324" width="40%"/><img src="https://github.com/user-attachments/assets/38c0c162-89b5-472e-a2cb-285997b141d6" width="40%"/><img src="https://github.com/user-attachments/assets/f3003f8c-e61e-43a6-9f9d-e010dfcb0971" width="10%"/>
+  <img style="margin-right: 30;" src="https://github.com/user-attachments/assets/fce80a75-b58c-4b10-8c44-6ea01f6058aa" width="10%"/>
+  <img src="https://github.com/user-attachments/assets/7dafa298-c226-440c-8703-24741bf92e97" width="40%"/>
+  <img src="https://github.com/user-attachments/assets/38c0c162-89b5-472e-a2cb-285997b141d6" width="40%"/>
+  <img src="https://github.com/user-attachments/assets/f3003f8c-e61e-43a6-9f9d-e010dfcb0971" width="10%"/>
 </div>
 
 ## LeetCode Solutions Repository
