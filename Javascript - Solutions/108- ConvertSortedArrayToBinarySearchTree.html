@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>108 Convert Sorted Array to Binary Search Tree</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>108. Convert Sorted Array to Binary Search Tree</h1>
+
+    <!-- https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description -->
+
+
+    <script>
+
+        function TreeNode(val, left, right) {
+            this.val = (val === undefined ? 0 : val)
+            this.left = (left === undefined ? null : left)
+            this.right = (right === undefined ? null : right)
+        }
+
+        let nums = [-10, -3, 0, 5, 9]
+
+        var sortedArrayToBST = function (nums) {
+            return sortArray(nums, 0, nums.length - 1);
+        };
+
+        function sortArray(nums, left, right) {
+            let mid = Math.floor((left + right) / 2);
+
+            let newNode = new TreeNode(nums[mid]);
+            if (left > right) {
+                return null;
+            }
+
+            newNode.left = sortArray(nums, left, mid - 1);
+            newNode.right = sortArray(nums, mid + 1, right);
+
+            return newNode;
+        }
+
+
+        console.warn(sortedArrayToBST(nums));
+    </script>
+</body>
+
+</html>
