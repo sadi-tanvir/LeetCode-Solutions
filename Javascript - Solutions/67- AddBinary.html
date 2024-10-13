@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>67. Add Binary</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>67. Add Binary</h1>
+
+    <!-- https://leetcode.com/problems/add-binary/ -->
+
+
+    <script>
+        var addBinary = function (a, b) {
+            return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
+        };
+
+
+        console.log(addBinary("11", "1"));
+    </script>
+</body>
+
+</html>
