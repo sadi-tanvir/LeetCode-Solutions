@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>222. Count Complete Tree Nodes</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>222. Count Complete Tree Nodes</h1>
+
+    <!-- https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/ -->
+
+
+    <script>
+        const tree = {
+            val: 3,
+            left: {
+                val: 9,
+                left: null,
+                right: null
+            },
+            right: {
+                val: 20,
+                left: {
+                    val: 15,
+                    left: null,
+                    right: null
+                },
+                right: {
+                    val: 7,
+                    left: null,
+                    right: null
+                }
+            }
+        };
+
+        var countNodes = function (root) {
+            if (root === null) {
+                return 0;
+            }
+            let leftSum = countNodes(root.left);
+            let rightSum = countNodes(root.right);
+
+            return leftSum + rightSum + 1;
+        };
+
+        console.warn(countNodes(tree));
+    </script>
+</body>
+
+</html>
