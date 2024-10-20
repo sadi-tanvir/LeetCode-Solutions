@@ -1,6 +1,6 @@
 /****************************************************************************************
-    Problem Name: 104. Maximum Depth of Binary Tree
-    Problem Link: https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+    Problem Name: 222. Count Complete Tree Nodes
+    Problem Link: https://leetcode.com/problems/count-complete-tree-nodes/description/
 *****************************************************************************************/
 
 
@@ -26,6 +26,7 @@ const tree = {
     }
 };
 
+
 class TreeNode {
     val: number;
     left: TreeNode | null;
@@ -38,13 +39,14 @@ class TreeNode {
 }
 
 
-function maxDepth(root: TreeNode | null): number {
+
+function countNodes(root: TreeNode | null): number {
     if (root === null) return 0;
 
-    const leftDepth = maxDepth(root.left);
-    const rightDepht = maxDepth(root.right);
+    let leftSum: number = countNodes(root.left);
+    let rightSum: number = countNodes(root.right);
 
-    return Math.max(leftDepth, rightDepht) + 1;
+    return leftSum + rightSum + 1;
 };
 
-console.warn(maxDepth(tree));
+console.warn(countNodes(tree));
