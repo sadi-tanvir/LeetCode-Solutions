@@ -45,7 +45,7 @@
 
             let leftSum = calculate(root2.left, true);
             let rightSum = calculate(root2.right, false);
-            return leftSum + rightSum + (isLeft & (root2.left == null) & (root2.right == null) ? root2.val : 0);
+            return leftSum + rightSum + (isLeft && (root2.left == null) && (root2.right == null) ? root2.val : 0);
         }
 
         console.warn(sumOfLeftLeaves(tree));
