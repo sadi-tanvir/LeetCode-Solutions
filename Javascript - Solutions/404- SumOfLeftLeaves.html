@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404. Sum of Left Leaves</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>404. Sum of Left Leaves</h1>
+
+    <!-- https://leetcode.com/problems/sum-of-left-leaves/description/ -->
+
+
+    <script>
+        const tree = {
+            val: 3,
+            left: {
+                val: 9,
+                left: null,
+                right: null
+            },
+            right: {
+                val: 20,
+                left: {
+                    val: 15,
+                    left: null,
+                    right: null
+                },
+                right: {
+                    val: 7,
+                    left: null,
+                    right: null
+                }
+            }
+        };
+
+        var sumOfLeftLeaves = function (root) {
+            return calculate(root, false);
+        };
+
+        function calculate(root2, isLeft) {
+            if (root2 == null) return 0;
+
+            let leftSum = calculate(root2.left, true);
+            let rightSum = calculate(root2.right, false);
+            return leftSum + rightSum + (isLeft & (root2.left == null) & (root2.right == null) ? root2.val : 0);
+        }
+
+        console.warn(sumOfLeftLeaves(tree));
+    </script>
+</body>
+
+</html>
