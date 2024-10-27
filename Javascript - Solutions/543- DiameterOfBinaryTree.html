@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>543. Diameter of Binary Tree</title>
+</head>
+
+<body style="width: 100vw; height: 100vh; background: #000; color: white">
+    <h1>543. Diameter of Binary Tree</h1>
+
+    <!-- https://leetcode.com/problems/diameter-of-binary-tree/description/ -->
+
+
+    <script>
+        const tree = {
+            val: 1,
+            left: {
+                val: 2,
+                left: {
+                    val: 4,
+                    left: null,
+                    right: null
+                },
+                right: {
+                    val: 5,
+                    left: null,
+                    right: null
+                }
+            },
+            right: {
+                val: 3,
+                left: null,
+                right: null
+            }
+        };
+
+        
+        var diameterOfBinaryTree = function (root) {
+            let maxDiameter = 0;
+
+            function heightOfTree(node) {
+                if (node === null) {
+                    return 0;
+                }
+
+                let leftHeight = heightOfTree(node.left);
+                let rightHeight = heightOfTree(node.right);
+
+                maxDiameter = Math.max(maxDiameter, leftHeight + rightHeight);
+
+                return Math.max(leftHeight, rightHeight) + 1;
+            }
+
+            heightOfTree(root);
+
+            return maxDiameter;
+        };
+
+        console.warn(diameterOfBinaryTree(tree));
+    </script>
+</body>
+
+</html>
