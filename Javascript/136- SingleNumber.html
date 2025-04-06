@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>136. Single Number</title>
+</head>
+
+<body>
+    <!-- problem link -->
+    <!-- https://leetcode.com/problems/single-number/ -->
+
+    <h1 style="color:brown">1. Two Sum</h1>
+
+    <script>
+        // 1st approach
+        var singleNumber = function (nums) {
+            let track = {};
+
+            for (let i = 0; i < nums.length; i++) {
+                if (track[nums[i]]) {
+                    track[nums[i]] = track[nums[i]] + 1;
+                } else {
+                    track[nums[i]] = 1;
+                }
+            }
+
+
+            for (const elem in track) {
+                if (track[elem] < 2) {
+                    return Number(elem);
+                }
+            }
+
+        };
+
+
+        // 2nd approach
+       /* var singleNumber = function (nums) {
+            let track = {};
+
+            for (let i = 0; i < nums.length; i++) {
+                if (track[nums[i]]) {
+                    delete track[nums[i]];
+                } else {
+                    track[nums[i]] = 1;
+                }
+            }
+
+
+            for (const elem in track) {
+                return Number(elem);
+            }
+        };*/
+
+        // 3nd approach
+       /* var singleNumber = function (nums) {
+            let track = {};
+
+            for (let i = 0; i < nums.length; i++) {
+                if (track[nums[i]]) {
+                    delete track[nums[i]];
+                } else {
+                    track[nums[i]] = 1;
+                }
+            }
+
+
+          return Number(Object.keys(track)[0]);
+        };*/
+
+        console.log(singleNumber([4, 1, 2, 1, 2]));
+
+    </script>
+</body>
+
+</html>
